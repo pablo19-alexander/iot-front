@@ -1,15 +1,24 @@
 import React from 'react'
-import Aside from './components/Aside'
-import Content from './components/Content'
+import Aside from './components/NavBar/Aside'
+import Home from './components/Content/Home'
+import About from './components/Content/About'
 import Footer from './components/Footer'
-import Header from './components/Header'
+import Header from './components/NavBar/Header'
+
+import { Route, Routes } from "react-router-dom";
 
 export default function App() {
   return (
     <>
+      
       <Header/>
       <Aside/>
-      <Content/>
+      <div>
+        <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
       <Footer/>
     </>
   )
