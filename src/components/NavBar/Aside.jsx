@@ -13,7 +13,7 @@ export default function Aside() {
           className="brand-image img-circle elevation-3"
           style={{ opacity: ".8" }}
         />
-        <span className="brand-text font-weight-light">Nombre</span>
+        <span className="brand-text font-weight-light"><strong>JOOSPA</strong></span>
       </Link>
       {/* Sidebar */}
       <div className="sidebar">
@@ -59,7 +59,7 @@ export default function Aside() {
             {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
             <li className="nav-item menu-open">
-              <Link to={""} className="nav-link active">
+              <Link to={"#"} className="nav-link active">
                 <i className="nav-icon fas fa-tachometer-alt" />
                 <p>
                   CRUDS
@@ -68,7 +68,7 @@ export default function Aside() {
               </Link>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <Link href="./index.html" className="nav-link">
+                  <Link to={"/crud-user"} className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>User Crud</p>
                   </Link>

@@ -7,7 +7,7 @@ export default function Header() {
       {/* Left navbar links */}
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link className="nav-link" data-widget="pushmenu" to={""} role="button">
+          <Link className="nav-link" data-widget="pushmenu" to={"#"} role="button">
             <i className="fas fa-bars" />
           </Link>
         </li>
