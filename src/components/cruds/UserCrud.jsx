@@ -6,7 +6,7 @@ class UserCrud extends React.Component {
     super(props);
     this.state = {
       datosCargados: false,
-      empleados: [],
+      users: [],
     };
   }
 
@@ -15,7 +15,7 @@ class UserCrud extends React.Component {
       .then((respuesta) => respuesta.json())
       .then((datosRespuesta) => {
         console.log(datosRespuesta);
-        this.setState({ datosCargados: true, empleados: datosRespuesta });
+        this.setState({ datosCargados: true, users: datosRespuesta });
       }) //mostramos los datos
       .catch(console.log);
   }
@@ -25,7 +25,7 @@ class UserCrud extends React.Component {
   }
 
   render() {
-    const { datosCargados, empleados } = this.state;
+    const { datosCargados, users } = this.state;
     if (!datosCargados) {
       return (
         <div className="d-flex justify-content-center mt-4 mb-4">
@@ -169,15 +169,19 @@ class UserCrud extends React.Component {
                         </thead>
                         <tbody>
                         {
-                            empleados.map(
-                                (empleado) => (
+                            users.map(
+                                (user) => (
                             
-                                <tr className="odd" key={empleado.username} >
-                                    <td className="dtr-control sorting_1" tabIndex={0}>{empleado.username}</td>
+                                <tr className="odd" key={user.username} >
+                                    <td className="dtr-control sorting_1" tabIndex={0}>{user.username}</td>
+                                    <td>{user.identification_type_name}</td>
+                                    <td>{user.identification}</td>
+                                    <td>{user.phone}</td>
+                                    <td>{user.address}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.first_name} {user.last_name}</td>
+                                    <td>{user.username}</td>
                                     <td></td>
-                                    <td>Win 98+ / OSX.2+</td>
-                                    <td>1.7</td>
-                                    <td>A</td>
                                 </tr>
                             )
                           )
