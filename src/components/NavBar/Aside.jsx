@@ -68,13 +68,13 @@ export default function Aside() {
               </Link>
               <ul className="nav nav-treeview">
                 <li className="nav-item">
-                  <Link to={"/crud-user"} className="nav-link">
+                  <Link to={"/UserList"} className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>User Crud</p>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="./index2.html" className="nav-link">
+                  <Link to={"/Driver-crud"} className="nav-link">
                     <i className="far fa-circle nav-icon" />
                     <p>Driver Crud</p>
                   </Link>
