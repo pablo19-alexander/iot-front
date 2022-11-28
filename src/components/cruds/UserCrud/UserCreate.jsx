@@ -6,9 +6,9 @@ class UserCreate extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      user:{
-        indentification_type: "",
-        indentification: "",
+      
+        identification_type: "",
+        identification: "",
         phone: "",
         address: "",
         email: "",
@@ -16,7 +16,7 @@ class UserCreate extends React.Component{
         last_name: "",
         password: "",
         username: ""
-      }
+      
     };
   }
 
@@ -24,17 +24,20 @@ class UserCreate extends React.Component{
     let state = this.state;
     state[e.target.name] = e.target.value;
     this.setState({state});
+    console.log(this.state);
   }
 
   enviarDatos = (e) =>{
     e.preventDefault();
     console.log("formulario fue enviado....");
 
-    let{indentification_type,indentification,phone,address,email,first_name,last_name,password,username} = this.state;
+    let{identification_type,identification,phone,address,email,first_name,last_name,password,username} = this.state;
     
+    console.log(this.state);
+
     var datosEnviar={
-      indentification_type:indentification_type,
-      indentification:indentification,
+      identification_type:identification_type,
+      identification:identification,
       phone:phone,
       address:address,
       email:email,
@@ -44,9 +47,15 @@ class UserCreate extends React.Component{
       username:username
     } 
 
+    console.log(datosEnviar);
+
     fetch("http://127.0.0.1:8000/api/users/", {
       method:"POST",
-      body:JSON.stringify(datosEnviar)
+      body:JSON.stringify(datosEnviar),
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }
     })
       .then((respuesta) => respuesta.json())
       .then((datosRespuesta) => {
@@ -57,7 +66,7 @@ class UserCreate extends React.Component{
 
   render() {
 
-    let{indentification_type,indentification,phone,address,email,first_name,last_name,password,username} = this.state;
+    let{identification_type,identification,phone,address,email,first_name,last_name,password,username} = this.state;
 
     return (
       <div className="content-wrapper">
@@ -87,27 +96,27 @@ class UserCreate extends React.Component{
                     <div className="col">
                      
                       <div className="form-group">
-                        <label htmlFor="indentification_type">Identifiction Type</label>
-                        <select className="form-control" name="identification_type" onChange={this.cambioValor} value={indentification_type}>
-                          <option value={3}>Registro civil de nacimiento</option>
-                          <option value={4}>Tarjeta de identidad</option>
-                          <option value={5}>Cédula de ciudadanía </option>
-                          <option value={6}>Tarjeta de extranjería</option>
-                          <option value={7}>NIT</option>
-                          <option value={8}>Pasaporte</option>
+                        <label htmlFor="identification_type">Identifiction Type</label>
+                        <select className="form-control" name="identification_type" onChange={this.cambioValor} value={identification_type}>
+                          <option value="3">Registro civil de nacimiento</option>
+                          <option value="4">Tarjeta de identidad</option>
+                          <option value="5">Cédula de ciudadanía </option>
+                          <option value="6">Tarjeta de extranjería</option>
+                          <option value="7">NIT</option>
+                          <option value="8">Pasaporte</option>
                         </select>
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="indentification" className="form-label">indentification</label>
+                        <label htmlFor="identification" className="form-label">identification</label>
                         <input
                           type="number"
                           className="form-control"
-                          name="indentification"
+                          name="identification"
                           onChange={this.cambioValor}
-                          value={indentification}
-                          id="indentification"
-                          placeholder="indentification"
+                          value={identification}
+                          id="identification"
+                          placeholder="identification"
                         />
                       </div>
 
@@ -118,6 +127,7 @@ class UserCreate extends React.Component{
                         <input
                           type="number"
                           className="form-control"
+                          name="phone"
                           onChange={this.cambioValor}
                           value={phone}
                           id="phone"
@@ -132,6 +142,7 @@ class UserCreate extends React.Component{
                         <input
                           type="address"
                           className="form-control"
+                          name="address"
                           onChange={this.cambioValor}
                           value={address}
                           id="address"
@@ -147,6 +158,7 @@ class UserCreate extends React.Component{
                         <input
                           type="email"
                           className="form-control"
+                          name="email"
                           onChange={this.cambioValor}
                           value={email}
                           id="email"
@@ -161,6 +173,7 @@ class UserCreate extends React.Component{
                         <input
                           type="text"
                           className="form-control"
+                          name="first_name"
                           onChange={this.cambioValor}
                           value={first_name}
                           id="first_name"
@@ -175,6 +188,7 @@ class UserCreate extends React.Component{
                         <input
                           type="text"
                           className="form-control"
+                          name="last_name"
                           onChange={this.cambioValor}
                           value={last_name}
                           id="last_name"
@@ -189,6 +203,7 @@ class UserCreate extends React.Component{
                         <input
                           type="text"
                           className="form-control"
+                          name="username"
                           onChange={this.cambioValor}
                           value={username}
                           id="username"
@@ -203,6 +218,7 @@ class UserCreate extends React.Component{
                         <input
                           type="password"
                           className="form-control"
+                          name="password"
                           onChange={this.cambioValor}
                           value={password}
                           id="password"
