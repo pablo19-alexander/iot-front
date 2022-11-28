@@ -1,57 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class UserCreate extends React.Component {
+
+class UserCreate extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      indentification_type: "",
-      indentification: "",
-      phone: "",
-      address: "",
-      email: "",
-      first_name: "",
-      last_name: "",
-      password: "",
-      username: "",
+      user:{
+        indentification_type: "",
+        indentification: "",
+        phone: "",
+        address: "",
+        email: "",
+        first_name: "",
+        last_name: "",
+        password: "",
+        username: ""
+      }
     };
   }
-  cambioValor = (e) => {
-    const state = this.state;
+
+  cambioValor = (e) =>{
+    let state = this.state;
     state[e.target.name] = e.target.value;
-    this.setState({ state });
+    this.setState({state});
   }
-  enviarDatos = (e) => {
+
+  enviarDatos = (e) =>{
     e.preventDefault();
-    console.log("Formulario fue enviado..");
+    console.log("formulario fue enviado....");
 
-    const {
-      indentification_type,
-      indentification,
-      phone,
-      address,
-      email,
-      first_name,
-      last_name,
-      password,
-      username,
-    } = this.state;
-
-    var datosEnviar = {
-      indentification_type: indentification_type,
-      indentification: indentification,
-      phone: phone,
-      address: address,
-      email: email,
-      first_name: first_name,
-      last_name: last_name,
-      password: password,
-      username: username,
-    }
+    let{indentification_type,indentification,phone,address,email,first_name,last_name,password,username} = this.state;
+    
+    var datosEnviar={
+      indentification_type:indentification_type,
+      indentification:indentification,
+      phone:phone,
+      address:address,
+      email:email,
+      first_name:first_name,
+      last_name:last_name,
+      password:password,
+      username:username
+    } 
 
     fetch("http://127.0.0.1:8000/api/users/", {
-      method: "POST",
-      body: JSON.stringify(datosEnviar)
+      method:"POST",
+      body:JSON.stringify(datosEnviar)
     })
       .then((respuesta) => respuesta.json())
       .then((datosRespuesta) => {
@@ -61,17 +56,8 @@ class UserCreate extends React.Component {
   }
 
   render() {
-    const {
-      indentification_type,
-      indentification,
-      phone,
-      address,
-      email,
-      first_name,
-      last_name,
-      password,
-      username,
-    } = this.state;
+
+    let{indentification_type,indentification,phone,address,email,first_name,last_name,password,username} = this.state;
 
     return (
       <div className="content-wrapper">
@@ -86,6 +72,7 @@ class UserCreate extends React.Component {
             </div>
           </div>
         </section>
+
         {/* create new user */}
         <div className="row d-flex justify-content-center">
           <div className="col-8">
@@ -98,19 +85,11 @@ class UserCreate extends React.Component {
                 <div className="card-body">
                   <div className="row">
                     <div className="col">
+                     
                       <div className="form-group">
-                        <label htmlFor="indentification_type">
-                          Identifiction Type
-                        </label>
-                        <select
-                          className="form-control"
-                          onChange={this.cambioValor}
-                          value={indentification_type}
-                          name="identification_type"
-                        >
-                          <option value={3}>
-                            Registro civil de nacimiento
-                          </option>
+                        <label htmlFor="indentification_type">Identifiction Type</label>
+                        <select className="form-control" name="identification_type" onChange={this.cambioValor} value={indentification_type}>
+                          <option value={3}>Registro civil de nacimiento</option>
                           <option value={4}>Tarjeta de identidad</option>
                           <option value={5}>Cédula de ciudadanía </option>
                           <option value={6}>Tarjeta de extranjería</option>
@@ -120,12 +99,11 @@ class UserCreate extends React.Component {
                       </div>
 
                       <div className="form-group">
-                        <label htmlFor="indentification" className="form-label">
-                          indentification
-                        </label>
+                        <label htmlFor="indentification" className="form-label">indentification</label>
                         <input
                           type="number"
                           className="form-control"
+                          name="indentification"
                           onChange={this.cambioValor}
                           value={indentification}
                           id="indentification"
@@ -235,16 +213,8 @@ class UserCreate extends React.Component {
                   </div>
                 </div>
                 <div className="card-footer d-flex justify-content-end">
-                  <Link
-                    to={"/UserList"}
-                    type="button"
-                    className="btn btn-danger"
-                  >
-                    Cancel
-                  </Link>
-                  <button type="submit" className="btn btn-primary mx-1">
-                    Submit
-                  </button>
+                  <Link to={"/UserList"} type="button" className="btn btn-danger">Cancel</Link>
+                  <button type="submit" className="btn btn-primary mx-1">Submit</button>
                 </div>
               </form>
             </div>
