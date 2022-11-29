@@ -17,9 +17,23 @@ export default function Content() {
       <div className="content">
         <div className="card card-solid">
           <div className="card-body">
-          <p>
-          Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.
-          </p>
+          
+            <div className="row">
+             <div className="col-6 text-center d-flex align-items-center">
+              <div class="">
+                <h2>
+                  <small>
+                    We welcome you to <strong>JOOSPA</strong> a software development venture in conjunction with <strong>IOT</strong> devices where you will use them to your liking such as monitoring or gps of vehicle fleets, temperature control for your crops or for your personal use. 
+                  </small>
+                </h2>
+              </div>
+              </div>
+              <div className="col-6 text-center">
+
+                <img src={imgHome} className="img-fluid" alt="..." />
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
