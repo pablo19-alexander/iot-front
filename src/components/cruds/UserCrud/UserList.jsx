@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class UserList extends React.Component {
+export default class UserList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -368,5 +368,3 @@ class UserList extends React.Component {
     }
   }
 }
-
-export default UserList;

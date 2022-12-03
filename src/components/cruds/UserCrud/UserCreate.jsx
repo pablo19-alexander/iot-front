@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-class UserCreate extends React.Component{
+export default class UserCreate extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -52,14 +51,13 @@ class UserCreate extends React.Component{
     fetch("http://127.0.0.1:8000/api/users/", {
       method:"POST",
       body:JSON.stringify(datosEnviar),
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      }
+      
     })
       .then((respuesta) => respuesta.json())
       .then((datosRespuesta) => {
         console.log(datosRespuesta);
+        // <Redirect to="/UserList" />
+        // this.props.history.push("/UserList");
       }) //mostramos los datos
       .catch(console.log);
   }
@@ -242,5 +240,3 @@ class UserCreate extends React.Component{
     );
   }
 }
-
-export default UserCreate;

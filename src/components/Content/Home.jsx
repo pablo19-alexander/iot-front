@@ -1,5 +1,5 @@
 import React from "react";
-import imgHome from "./img/farmer-using-smart-farm-application.png"
+import imgHome from "./img/network-g97775534c_1280.png"
 
 export default function Content() {
   return (
@@ -20,17 +20,14 @@ export default function Content() {
           
             <div className="row">
              <div className="col-6 text-center d-flex align-items-center">
-              <div class="">
                 <h2>
                   <small>
                     We welcome you to <strong>JOOSPA</strong> a software development venture in conjunction with <strong>IOT</strong> devices where you will use them to your liking such as monitoring or gps of vehicle fleets, temperature control for your crops or for your personal use. 
                   </small>
                 </h2>
               </div>
-              </div>
               <div className="col-6 text-center">
-
-                <img src={imgHome} className="img-fluid" alt="..." />
+                  <img src={imgHome} className="img-fluid rounded " alt="..." width="700" />
               </div>
             </div>
 
