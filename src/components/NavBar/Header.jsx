@@ -26,14 +26,14 @@ export default function Header() {
       <ul className="navbar-nav ml-auto">
         {/* Navbar Search */}
         <li className="nav-item">
-          <a
+          <Link
             className="nav-link"
             data-widget="navbar-search"
-            href="#"
+            to={"#"}
             role="button"
           >
             <i className="fas fa-search" />
-          </a>
+          </Link>
           <div className="navbar-search-block">
             <form className="form-inline">
               <div className="input-group input-group-sm">
@@ -175,14 +175,14 @@ export default function Header() {
           </div>
         </li> */}
         <li className="nav-item">
-          <a
+          <Link
             className="nav-link"
             data-widget="fullscreen"
-            href="#"
+            to={"#"}
             role="button"
           >
             <i className="fas fa-expand-arrows-alt" />
-          </a>
+          </Link>
         </li>
         {/* <li className="nav-item">
           <a

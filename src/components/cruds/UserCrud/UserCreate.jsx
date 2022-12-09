@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
-export default class UserCreate extends React.Component{
+class UserCreate extends React.Component{
+
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +59,7 @@ export default class UserCreate extends React.Component{
       .then((datosRespuesta) => {
         console.log(datosRespuesta);
         // <Redirect to="/UserList" />
-        // this.props.history.push("/UserList");
+        this.props.history.push("/UserList");
       }) //mostramos los datos
       .catch(console.log);
   }
@@ -240,3 +242,4 @@ export default class UserCreate extends React.Component{
     );
   }
 }
+export default UserCreate;

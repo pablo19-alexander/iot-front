@@ -9,7 +9,7 @@ import UserList from './components/cruds/UserCrud/UserList'
 import UserUpdate from './components/cruds/UserCrud/UserUpdate'
 import UserCreate from './components/cruds/UserCrud/UserCreate'
 //userDriver
-import DriverCrud from './components/cruds/DriverCrud'
+import DriverList from './components/cruds/DriverCrud/DriverList'
 
 import { Route, Routes } from "react-router-dom";
 
@@ -28,7 +28,7 @@ export default function App() {
             <Route path="/UserCreate" element={<UserCreate />} />
 
             {/* // route of userCrud */}
-            <Route path="/Driver-crud" element={<DriverCrud />} />
+            <Route path="/DriverList" element={<DriverList />} />
 
         </Routes>
       </div>
