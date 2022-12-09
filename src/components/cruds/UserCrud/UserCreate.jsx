@@ -25,7 +25,7 @@ class UserCreate extends React.Component{
     let state = this.state;
     state[e.target.name] = e.target.value;
     this.setState({state});
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   enviarDatos = (e) =>{
@@ -34,7 +34,7 @@ class UserCreate extends React.Component{
 
     let{identification_type,identification,phone,address,email,first_name,last_name,password,username} = this.state;
     
-    console.log(this.state);
+    // console.log(this.state);
 
     var datosEnviar={
       identification_type:identification_type,
@@ -48,7 +48,7 @@ class UserCreate extends React.Component{
       username:username
     } 
 
-    console.log(datosEnviar);
+    // console.log(datosEnviar);
 
     fetch("http://127.0.0.1:8000/api/users/", {
       method:"POST",
@@ -58,7 +58,6 @@ class UserCreate extends React.Component{
       .then((respuesta) => respuesta.json())
       .then((datosRespuesta) => {
         console.log(datosRespuesta);
-        // <Redirect to="/UserList" />
         this.props.history.push("/UserList");
       }) //mostramos los datos
       .catch(console.log);
