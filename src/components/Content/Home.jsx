@@ -8,7 +8,7 @@ export default function Content() {
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1> Bienvenidos a <strong> JOOSPA</strong></h1>
+              <h1> Welcome to <strong> JOOSPA</strong></h1>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ import Header from './components/NavBar/Header'
 import UserList from './components/cruds/UserCrud/UserList'
 import UserUpdate from './components/cruds/UserCrud/UserUpdate'
 import UserCreate from './components/cruds/UserCrud/UserCreate'
+import UserCrud from './components/cruds/UserCrud/UserCrud'
 //userDriver
 import DriverList from './components/cruds/DriverCrud/DriverList'
 
@@ -26,6 +27,9 @@ export default function App() {
             <Route path="/UserList" element={<UserList />} />
             <Route path="/UserUpdate" element={<UserUpdate />} />
             <Route path="/UserCreate" element={<UserCreate />} />
+            <Route path="/UserCrud" element={<UserCrud />} />
+
+            List
 
             {/* // route of userCrud */}
             <Route path="/DriverList" element={<DriverList />} />

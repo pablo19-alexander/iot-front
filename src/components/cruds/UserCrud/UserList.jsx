@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// iconos de font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faEdit, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 
 class UserList extends React.Component {
   constructor(props) {
@@ -8,6 +11,17 @@ class UserList extends React.Component {
       datosCargados: false,
       users: [],
     };
+  }
+
+  borrarRegistro = (username) => {
+    console.log(username);
+    fetch("http://127.0.0.1:8000/api/users/")
+    .then((respuesta) => respuesta.json())
+    .then((datosRespuesta) => {
+      console.log(datosRespuesta);
+      this.cargarDatos();
+    }) //mostramos los datos
+    .catch(console.log);
   }
 
   cargarDatos() {
@@ -182,25 +196,13 @@ class UserList extends React.Component {
                                     <td>{user.first_name} {user.last_name}</td>
                                     <td>{user.username}</td>
                                     <td>
-                                      <div className="btn-group" role="group" arial-label="">
+                                      <div className="btn-group" role="group">
                                         <Link className="" to={"/editar"}>
-                                          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#00abfb" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                            <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
-                                            <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
-                                            <line x1="16" y1="5" x2="19" y2="8" />
-                                          </svg>
+                                          <FontAwesomeIcon icon={faEdit} style={{fontSize:"20px", color:"black"}} />
                                         </Link>
                                         <div className="mx-1"></div>
-                                        <Link type="button" className="me-4">
-                                          <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ff2825" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                            <line x1="4" y1="7" x2="20" y2="7" />
-                                            <line x1="10" y1="11" x2="10" y2="17" />
-                                            <line x1="14" y1="11" x2="14" y2="17" />
-                                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                                          </svg>
+                                        <Link type="button" className="me-4" onClick={()=> this.borrarRegistro(user.username)}>
+                                          <FontAwesomeIcon icon={faTrashAlt} style={{fontSize:"20px", color:"black"}} />
                                         </Link>
                                       </div>
                                     </td>
